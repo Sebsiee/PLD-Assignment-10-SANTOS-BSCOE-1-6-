@@ -1,4 +1,5 @@
 import cv2
+import datetime
 
 cam = cv2.VideoCapture(0)
 detector = cv2.QRCodeDetector()
@@ -16,7 +17,7 @@ cam.release()
 cv2.destroyAllWindows()
 
 with open("Data.txt", mode='a') as file:
-    file.write("Data: %s" % (data))
+    file.write('Data: %s, Recorded at %s.\n' % (data, datetime.datetime.now()))
     file.close()
 
 print(data)
